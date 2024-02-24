@@ -1,0 +1,6 @@
+---
+ufw_default_policy: deny
+ufw_logging: yes
+ufw_rules:
+  - {rule: 'allow', port: 'ssh' }
+  - {rule: 'allow', port: 'ntp'}

@@ -1,6 +1,0 @@
-{
-    "ansible.python.interpreterPath": "/Users/elian/.pyenv/versions/3.12.1/bin/python",
-    "yaml.schemas": {
-        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks": "file:///Users/elian/projects/ansible/roles/secure/tasks/main.yml"
-    }
-}

@@ -1,11 +1,6 @@
 ---
-- name: Deploy
+- name: Deploy base security configuration
   hosts: all
   become: true
-
-  vars_files:
-    - roles/secure/vars/main.yml
-
-  tasks:
-    - name: Run server hardening tasks
-      ansible.builtin.import_tasks: roles/secure/tasks/main.yml
+  roles:
+    - secure

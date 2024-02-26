@@ -1,6 +1,4 @@
 ---
-# Base server security settings
-
 - name: Update APT cache if needed
   ansible.builtin.apt:
     update_cache: true
@@ -48,17 +46,19 @@
 
 - name: Configure UFW default policy
   community.general.ufw:
-    default: "{{ ufw_default_policy }}"
+    default: "deny"
 
-- name: Configure logging
+- name: Configure UFW logging
   community.general.ufw:
-    logging: "{{ ufw_logging }}"
+    logging: true 
 
 - name: Add UFW rules
   community.general.ufw:
     rule: "{{ item.rule }}"
     port: "{{ item.port }}"
-  loop: "{{ ufw_rules }}"
+  loop:
+    - { rule: "allow", port: "ssh" }
+    - { rule: "allow", port: "ntp" }
   notify: restart ufw
 
 - name: Disable root login

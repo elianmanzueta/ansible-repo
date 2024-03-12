@@ -1,0 +1,4 @@
+--- 
+grocy_path: /opt/grocy/
+compose_file_path: '{{ role_path }}/files/compose.yml'
+

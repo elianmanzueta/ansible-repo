@@ -1,10 +1,11 @@
 ---
-- name: Perform upgrades + security configuration
+- name: Perform baseline configuration 
   hosts: all
   become: true
   roles:
     - upgrade
     - geerlingguy.security
+    - base
   tags:
     - base
 
@@ -23,6 +24,7 @@
     - pihole
   tags:
     - pihole
+
 - name: Install jellyfin
   hosts: jellyfin
   become: true
@@ -31,3 +33,10 @@
   tags:
     - jellyfin
 
+- name: Install grocy
+  hosts: grocy
+  become: true
+  roles:
+    - grocy
+  tags:
+    - grocy

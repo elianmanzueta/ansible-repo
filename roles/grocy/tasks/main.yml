@@ -1,0 +1,16 @@
+---
+- name: Create grocy directory
+  file:
+    path: "{{ grocy_path }}"
+    state: directory
+    mode: '0655'
+
+- name: Copy compose.yml
+  copy:
+    src: "{{ compose_file_path }}"
+    dest: "{{ grocy_path }}"
+
+- name: Run Docker compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ grocy_path }}"
+

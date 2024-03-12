@@ -1,0 +1,4 @@
+---
+# vars file for pihole
+remote_docker_compose_path: "/opt/pihole/"
+pihole_password: "password"

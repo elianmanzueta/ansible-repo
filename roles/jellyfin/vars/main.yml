@@ -1,0 +1,3 @@
+---
+jellyfin_path: /opt/jellyfin
+compose_file_path: "{{ role_path }}/files/compose.yml"

@@ -1,0 +1,15 @@
+---
+- name: Create jellyfin directory
+  file:
+    path: "{{ jellyfin_path }}"
+    state: directory
+    mode: '0655'
+
+- name: Copy compose.yml
+  copy:
+    src: "{{ compose_file_path }}"
+    dest: "{{ jellyfin_path }}"
+
+- name: Run Docker Compose
+  community.docker.docker_compose_v2: 
+      project_src: "{{ jellyfin_path }}"

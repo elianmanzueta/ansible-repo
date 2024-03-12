@@ -1,0 +1,30 @@
+---
+
+- name: Create pihole directory
+  file:
+    path: /opt/pihole
+    state: directory
+    mode: "0644"
+
+- name: Copy Docker Compose file to remote host
+  copy:
+    src: "{{ role_path }}/files/compose.yml"
+    dest: "{{ remote_docker_compose_path }}"
+
+- name: Install packages
+  package:
+    name: "{{ item  }}"
+    state: present
+  loop:
+    - python3-pip
+    - docker-compose
+
+- name: Disable systemd-resolve
+  service:
+    name: systemd-resolved
+    state: stopped
+    enabled: false
+
+- name: Run Docker Compose
+  community.docker.docker_compose_v2: 
+    project_src: "{{ remote_docker_compose_path }}"

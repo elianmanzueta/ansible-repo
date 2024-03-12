@@ -1,6 +1,33 @@
 ---
-- name: Deploy base security configuration
+- name: Perform upgrades + security configuration
   hosts: all
   become: true
   roles:
-    - secure
+    - upgrade
+    - geerlingguy.security
+  tags:
+    - base
+
+- name: Install Docker
+  hosts: docker
+  become: true
+  roles:
+    - geerlingguy.docker
+  tags: 
+    - docker
+
+- name: Install pihole
+  hosts: pihole
+  become: true
+  roles:
+    - pihole
+  tags:
+    - pihole
+- name: Install jellyfin
+  hosts: jellyfin
+  become: true
+  roles:
+    - jellyfin
+  tags:
+    - jellyfin
+

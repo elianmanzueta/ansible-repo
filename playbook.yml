@@ -33,10 +33,10 @@
   tags:
     - jellyfin
 
-- name: Install grocy
-  hosts: grocy
+- name: Install Uptime Kuma
+  hosts: uptime-kuma
   become: true
   roles:
-    - grocy
+    - uptime-kuma
   tags:
-    - grocy
+    - uptime-kuma

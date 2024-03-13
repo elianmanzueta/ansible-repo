@@ -1,4 +1,4 @@
 --- 
-grocy_path: /opt/grocy/
+uptimekuma_path: /opt/uptimekuma/
 compose_file_path: '{{ role_path }}/files/compose.yml'
 

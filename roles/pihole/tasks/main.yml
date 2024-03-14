@@ -11,14 +11,6 @@
     src: "{{ role_path }}/files/compose.yml"
     dest: "{{ remote_docker_compose_path }}"
 
-- name: Install packages
-  package:
-    name: "{{ item  }}"
-    state: present
-  loop:
-    - python3-pip
-    - docker-compose
-
 - name: Disable systemd-resolve
   service:
     name: systemd-resolved

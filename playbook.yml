@@ -21,6 +21,7 @@
   hosts: pihole
   become: true
   roles:
+    - geerlingguy.pip
     - pihole
   tags:
     - pihole
